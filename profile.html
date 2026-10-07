@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zhaochen James Xu is a PhD student at Georgia Tech working on robotic locomotion, robophysics, and the physics of living systems.">
+  <meta property="og:title" content="Zhaochen James Xu">
+  <meta property="og:description" content="Robotic locomotion, physics of living systems, and robophysics at Georgia Tech.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://jamesxuu.github.io/JamesXu.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zhaochen James Xu">
+  <meta name="twitter:description" content="Robotic locomotion, physics of living systems, and robophysics at Georgia Tech.">
+  <meta name="twitter:image" content="https://jamesxuu.github.io/JamesXu.jpg">
+  <title>Zhaochen James Xu</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #242424;
+      --muted: #666;
+      --link: #397d9c;
+      --rule: #e7e7e7;
+      --page-width: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; }
+    .skip-link:focus { left: 16px; top: 12px; z-index: 10; padding: 8px 12px; background: #fff; border: 1px solid #222; }
+
+    .page {
+      width: min(calc(100% - 48px), var(--page-width));
+      margin: 0 auto;
+      padding: 58px 0 72px;
+      display: grid;
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 72px;
+      align-items: start;
+    }
+
+    .sidebar { position: sticky; top: 42px; }
+    .portrait {
+      display: block;
+      width: 205px;
+      height: 205px;
+      object-fit: cover;
+      object-position: 51% 34%;
+      border-radius: 3px;
+    }
+
+    .name {
+      margin: 13px 0 0;
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+    }
+
+    .role { margin: 5px 0 0; color: var(--muted); line-height: 1.45; }
+    .role a { display: block; }
+    .quick-links { margin: 15px 0 0; display: flex; flex-wrap: wrap; gap: 6px 15px; }
+    .quick-links a { font-size: 14px; }
+
+    .sidebar-block { margin-top: 25px; padding-top: 17px; border-top: 1px solid var(--rule); }
+    .sidebar-block h2 {
+      margin: 0 0 8px;
+      color: #333;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .sidebar-block p { margin: 0 0 9px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .sidebar-block strong { color: var(--text); font-weight: 600; }
+    .side-nav { display: flex; flex-direction: column; gap: 4px; }
+    .side-nav a { width: fit-content; font-size: 13px; }
+
+    .content { min-width: 0; }
+    section { padding: 0 0 42px; }
+    section + section { padding-top: 36px; border-top: 1px solid var(--rule); }
+    h1, h2, h3, p { overflow-wrap: break-word; }
+    .content h2 {
+      margin: 0 0 18px;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+    .content p { margin: 0 0 15px; }
+    .lead { font-size: 16px; line-height: 1.62; }
+
+    .research-list { display: grid; gap: 0; }
+    .research-item {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 16px;
+      padding: 22px 0;
+      border-top: 1px solid var(--rule);
+    }
+    .research-item:first-child { border-top-color: #aaa; }
+    .research-number { padding-top: 2px; color: #999; font-size: 12px; font-variant-numeric: tabular-nums; }
+    .research-item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 600; line-height: 1.3; }
+    .research-item p { margin: 0; color: #4f4f4f; }
+    .research-notes { margin-top: 8px; color: var(--muted); font-size: 13px; }
+
+    .publication-list { list-style: none; margin: 0; padding: 0; }
+    .publication {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 14px;
+      padding: 17px 0;
+      border-top: 1px solid var(--rule);
+    }
+    .publication:first-child { border-top-color: #aaa; }
+    .pub-year { color: #888; font-size: 12px; font-variant-numeric: tabular-nums; }
+    .pub-title { margin: 0 0 4px; font-weight: 600; line-height: 1.42; }
+    .pub-authors, .pub-venue { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .pub-venue { font-style: italic; }
+    .pub-links { margin-top: 5px; display: flex; gap: 12px; font-size: 12px; }
+    .all-pubs { margin-top: 17px; }
+
+    .education-list { display: grid; gap: 19px; }
+    .education-item { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; }
+    .education-year { color: #888; font-size: 13px; }
+    .education-item h3 { margin: 0 0 3px; font-size: 15px; font-weight: 600; }
+    .education-item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    footer { padding-top: 4px; color: #999; font-size: 12px; }
+
+    @media (max-width: 780px) {
+      .page { width: min(calc(100% - 32px), 680px); padding-top: 32px; grid-template-columns: 1fr; gap: 44px; }
+      .sidebar { position: static; display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 22px; }
+      .portrait { width: 150px; height: 150px; }
+      .profile-info { align-self: center; }
+      .sidebar-block { grid-column: 1 / -1; margin-top: 0; }
+      .sidebar-block + .sidebar-block { margin-top: -12px; }
+      .side-nav { flex-direction: row; flex-wrap: wrap; gap: 5px 18px; }
+    }
+
+    @media (max-width: 480px) {
+      body { font-size: 14px; }
+      .page { padding-top: 22px; }
+      .sidebar { grid-template-columns: 112px minmax(0, 1fr); gap: 17px; }
+      .portrait { width: 112px; height: 112px; }
+      .name { margin-top: 0; font-size: 20px; }
+      .role { font-size: 13px; }
+      .quick-links { margin-top: 10px; gap: 4px 12px; }
+      .content h2 { font-size: 22px; }
+      section { padding-bottom: 34px; }
+      section + section { padding-top: 30px; }
+      .education-item { grid-template-columns: 1fr; gap: 3px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="page">
+    <aside class="sidebar" aria-label="Profile">
+      <img class="portrait" src="JamesXu.jpg" alt="James Xu holding a soft multi-legged robot outdoors">
+      <div class="profile-info">
+        <h1 class="name">Zhaochen James Xu</h1>
+        <p class="role">PhD Student<br><a href="https://physics.gatech.edu/" rel="noreferrer">School of Physics</a><a href="https://www.gatech.edu/" rel="noreferrer">Georgia Tech</a></p>
+        <nav class="quick-links" aria-label="Profile links"><a href="mailto:zxu699@gatech.edu">Email</a><a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Scholar</a><a href="James_Xu_CV.pdf">CV</a></nav>
+      </div>
+
+      <div class="sidebar-block">
+        <h2>Research</h2>
+        <p>Robotic locomotion<br>Physics of living systems<br>Robophysics</p>
+      </div>
+
+      <div class="sidebar-block">
+        <h2>Affiliation</h2>
+        <p><strong><a href="https://crablab.gatech.edu/" rel="noreferrer">Crab Lab</a></strong><br>Advisor: Daniel I. Goldman<br>Georgia Institute of Technology</p>
+      </div>
+
+      <nav class="sidebar-block side-nav" aria-label="Page sections"><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#education">Education</a></nav>
+    </aside>
+
+    <main class="content" id="main">
+      <section id="about">
+        <h2>About Me</h2>
+        <p class="lead">I am a PhD student in Quantitative Bioscience in the <a href="https://physics.gatech.edu/" rel="noreferrer">School of Physics</a> at Georgia Tech, advised by <a href="https://crablab.gatech.edu/" rel="noreferrer">Prof. Daniel I. Goldman</a>. I am also pursuing an MS in Robotics/Computer Science.</p>
+        <p>My research uses physical experiments, robot design, and modeling to understand how multi-legged systems sense, adapt, and move through complex environments. I am especially interested in tactile sensing, terrain interaction, and locomotion across land and water.</p>
+        <p>Before Georgia Tech, I completed an MS in Biomedical Engineering at Columbia University and a BEng in Electrical Engineering at University College London.</p>
+      </section>
+
+      <section id="research">
+        <h2>Research Interests</h2>
+        <div class="research-list">
+          <article class="research-item">
+            <div class="research-number">01</div>
+            <div><h3>Tactile sensing for multi-legged robots</h3><p>I develop compliant antennae that provide tactile feedback during locomotion over rugged terrain, connecting physical sensing directly to robot control.</p><div class="research-notes">First-author work accepted to IROS 2026.</div></div>
+          </article>
+          <article class="research-item">
+            <div class="research-number">02</div>
+            <div><h3>Multi-terrain and surface-swimming robots</h3><p>I design and test undulatory robots with morphable, directionally compliant legs for terrestrial and water-surface locomotion, using robophysical experiments and resistive force theory.</p><div class="research-notes">Work in Physical Review Applied; presented at APS and SICB.</div></div>
+          </article>
+          <article class="research-item">
+            <div class="research-number">03</div>
+            <div><h3>Robust locomotion in complex terrain</h3><p>I study geometric, probabilistic, and contact-based gait control for multi-legged elongated robots moving across noisy and rugged landscapes.</p><div class="research-notes">Work in IEEE Transactions on Robotics and ICRA.</div></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="publications">
+        <h2>Selected Publications</h2>
+        <ol class="publication-list">
+          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot</p><p class="pub-authors"><strong>Z. J. Xu</strong>, J. He, D. Aydan, M. Taylor, T. Wang, J. Lin, W. Dyer, D. I. Goldman</p><p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), accepted</p><div class="pub-links"><a href="https://arxiv.org/abs/2603.07795" rel="noreferrer">arXiv</a></div></div></li>
+          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">Tunable Asymmetric Swimming in Biflagellate Microswimmers</p><p class="pub-authors">B. J. Walker, C. Moreau, T. L. Robinson, <strong>Z. J. Xu</strong>, D. I. Goldman, E. A. Gaffney</p><p class="pub-venue">Journal of The Royal Society Interface, accepted</p><div class="pub-links"><a href="https://arxiv.org/abs/2602.17521" rel="noreferrer">arXiv</a></div></div></li>
+          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">Agile Asymmetric Multi-Legged Locomotion: Contact Planning via Geometric Mechanics and Spin Model Duality</p><p class="pub-authors">J. Habala, G. B. Margolis, T. Wang, P. Bhatt, J. He, N. Naeem, <strong>Z. Xu</strong>, P. Agrawal</p><p class="pub-venue">arXiv preprint</p><div class="pub-links"><a href="https://arxiv.org/abs/2602.09123" rel="noreferrer">arXiv</a></div></div></li>
+          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">Optimal Swimming with Body Compliance in an Overdamped Medium</p><p class="pub-authors">J. Lin, T. Wang, B. Chong, M. Fernandez, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">Physical Review Applied, 25, 054068</p><div class="pub-links"><a href="https://doi.org/10.1103/pbkh-py5h" rel="noreferrer">DOI</a></div></div></li>
+          <li class="publication"><div class="pub-year">2025</div><div><p class="pub-title">Robust Control for Multi-Legged Elongate Robots in Noisy Environments</p><p class="pub-authors">B. Chong, J. He, D. Irvine, T. Wang, E. Flores, D. Soto, J. Lin, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">arXiv preprint</p><div class="pub-links"><a href="https://arxiv.org/abs/2506.15788" rel="noreferrer">arXiv</a></div></div></li>
+          <li class="publication"><div class="pub-year">2025</div><div><p class="pub-title">Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes</p><p class="pub-authors">J. He, B. Chong, J. Lin, <strong>Z. Xu</strong>, H. Bagheri, E. Flores, D. I. Goldman</p><p class="pub-venue">IEEE Transactions on Robotics</p></div></li>
+          <li class="publication"><div class="pub-year">2025</div><div><p class="pub-title">Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains</p><p class="pub-authors">M. Iaschi, B. Chong, T. Wang, J. Lin, J. He, D. Soto, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2925–2931</p></div></li>
+          <li class="publication"><div class="pub-year">2024</div><div><p class="pub-title">Learning to Enhance Multi-Legged Robot on Rugged Landscapes</p><p class="pub-authors">J. He, B. Chong, <strong>Z. Xu</strong>, S. Ha, D. I. Goldman</p><p class="pub-venue">arXiv preprint</p><div class="pub-links"><a href="https://arxiv.org/abs/2409.09473" rel="noreferrer">arXiv</a></div></div></li>
+        </ol>
+        <p class="all-pubs">For the full publication and presentation list, see my <a href="James_Xu_CV.pdf">CV</a> or <a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Google Scholar profile</a>.</p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="education-list">
+          <article class="education-item"><div class="education-year">2024–present</div><div><h3>Georgia Institute of Technology</h3><p>PhD in Quantitative Bioscience, School of Physics<br>MS in Robotics/Computer Science, in progress</p></div></article>
+          <article class="education-item"><div class="education-year">2022–2024</div><div><h3>Columbia University</h3><p>MS in Biomedical Engineering, Neural Engineering</p></div></article>
+          <article class="education-item"><div class="education-year">2018–2022</div><div><h3>University College London</h3><p>BEng in Electrical Engineering, minor in Biomedical Engineering</p></div></article>
+        </div>
+      </section>
+
+      <footer>Last updated August 2026.</footer>
+    </main>
+  </div>
+</body>
+</html>
