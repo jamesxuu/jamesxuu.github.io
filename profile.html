@@ -101,35 +101,41 @@
     .content p { margin: 0 0 15px; }
     .lead { font-size: 16px; line-height: 1.62; }
 
-    .research-list { display: grid; gap: 0; }
-    .research-item {
-      display: grid;
-      grid-template-columns: 38px minmax(0, 1fr);
-      gap: 16px;
-      padding: 22px 0;
-      border-top: 1px solid var(--rule);
-    }
-    .research-item:first-child { border-top-color: #aaa; }
-    .research-number { padding-top: 2px; color: #999; font-size: 12px; font-variant-numeric: tabular-nums; }
-    .research-item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 600; line-height: 1.3; }
-    .research-item p { margin: 0; color: #4f4f4f; }
-    .research-notes { margin-top: 8px; color: var(--muted); font-size: 13px; }
-
     .publication-list { list-style: none; margin: 0; padding: 0; }
     .publication {
       display: grid;
-      grid-template-columns: 48px minmax(0, 1fr);
-      gap: 14px;
-      padding: 17px 0;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 22px;
+      padding: 23px 0;
       border-top: 1px solid var(--rule);
+      align-items: start;
     }
     .publication:first-child { border-top-color: #aaa; }
-    .pub-year { color: #888; font-size: 12px; font-variant-numeric: tabular-nums; }
-    .pub-title { margin: 0 0 4px; font-weight: 600; line-height: 1.42; }
-    .pub-authors, .pub-venue { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .pub-media {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: #f7f8f9;
+      border: 1px solid #e4e7e9;
+      border-radius: 3px;
+      color: #899198;
+      font-size: 11px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .pub-media svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.3; }
+    .pub-media img, .pub-media video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+    .pub-year { margin-bottom: 4px; color: #888; font-size: 12px; font-variant-numeric: tabular-nums; }
+    .content .pub-title { margin: 0 0 6px; font-size: 15px; font-weight: 600; line-height: 1.42; }
+    .content .pub-authors, .content .pub-venue { margin: 0 0 4px; color: var(--muted); font-size: 13px; line-height: 1.45; }
     .pub-venue { font-style: italic; }
-    .pub-links { margin-top: 5px; display: flex; gap: 12px; font-size: 12px; }
-    .all-pubs { margin-top: 17px; }
+    .pub-links { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; }
+    .content .all-pubs { margin-top: 17px; font-size: 13px; }
 
     .education-list { display: grid; gap: 19px; }
     .education-item { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; }
@@ -160,11 +166,19 @@
       .content h2 { font-size: 22px; }
       section { padding-bottom: 34px; }
       section + section { padding-top: 30px; }
+      .publication { grid-template-columns: 1fr; gap: 14px; }
+      .pub-media { width: min(100%, 220px); }
       .education-item { grid-template-columns: 1fr; gap: 3px; }
     }
   </style>
 </head>
 <body>
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden">
+    <symbol id="media-placeholder" viewBox="0 0 24 24">
+      <rect x="2.5" y="4.5" width="19" height="15" rx="2"/>
+      <path d="M9.5 8.5 15 12l-5.5 3.5Z"/>
+    </symbol>
+  </svg>
   <a class="skip-link" href="#main">Skip to main content</a>
   <div class="page">
     <aside class="sidebar" aria-label="Profile">
@@ -172,12 +186,7 @@
       <div class="profile-info">
         <h1 class="name">Zhaochen James Xu</h1>
         <p class="role">PhD Student<br><a href="https://physics.gatech.edu/" rel="noreferrer">School of Physics</a><a href="https://www.gatech.edu/" rel="noreferrer">Georgia Tech</a></p>
-        <nav class="quick-links" aria-label="Profile links"><a href="mailto:zxu699@gatech.edu">Email</a><a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Scholar</a><a href="James_Xu_CV.pdf">CV</a></nav>
-      </div>
-
-      <div class="sidebar-block">
-        <h2>Research</h2>
-        <p>Robotic locomotion<br>Physics of living systems<br>Robophysics</p>
+        <nav class="quick-links" aria-label="Profile links"><a href="mailto:zxu699@gatech.edu">Email</a><a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Scholar</a></nav>
       </div>
 
       <div class="sidebar-block">
@@ -185,7 +194,7 @@
         <p><strong><a href="https://crablab.gatech.edu/" rel="noreferrer">Crab Lab</a></strong><br>Advisor: Daniel I. Goldman<br>Georgia Institute of Technology</p>
       </div>
 
-      <nav class="sidebar-block side-nav" aria-label="Page sections"><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#education">Education</a></nav>
+      <nav class="sidebar-block side-nav" aria-label="Page sections"><a href="#about">About</a><a href="#publications">Publications</a><a href="#education">Education</a></nav>
     </aside>
 
     <main class="content" id="main">
@@ -196,37 +205,52 @@
         <p>Before Georgia Tech, I completed an MS in Biomedical Engineering at Columbia University and a BEng in Electrical Engineering at University College London.</p>
       </section>
 
-      <section id="research">
-        <h2>Research Interests</h2>
-        <div class="research-list">
-          <article class="research-item">
-            <div class="research-number">01</div>
-            <div><h3>Tactile sensing for multi-legged robots</h3><p>I develop compliant antennae that provide tactile feedback during locomotion over rugged terrain, connecting physical sensing directly to robot control.</p><div class="research-notes">First-author work accepted to IROS 2026.</div></div>
-          </article>
-          <article class="research-item">
-            <div class="research-number">02</div>
-            <div><h3>Multi-terrain and surface-swimming robots</h3><p>I design and test undulatory robots with morphable, directionally compliant legs for terrestrial and water-surface locomotion, using robophysical experiments and resistive force theory.</p><div class="research-notes">Work in Physical Review Applied; presented at APS and SICB.</div></div>
-          </article>
-          <article class="research-item">
-            <div class="research-number">03</div>
-            <div><h3>Robust locomotion in complex terrain</h3><p>I study geometric, probabilistic, and contact-based gait control for multi-legged elongated robots moving across noisy and rugged landscapes.</p><div class="research-notes">Work in IEEE Transactions on Robotics and ICRA.</div></div>
-          </article>
-        </div>
-      </section>
-
       <section id="publications">
-        <h2>Selected Publications</h2>
+        <h2>Publications</h2>
+        <!-- Replace each .pub-media figure's contents with its GIF <img> or <video> when available. -->
         <ol class="publication-list">
-          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot</p><p class="pub-authors"><strong>Z. J. Xu</strong>, J. He, D. Aydan, M. Taylor, T. Wang, J. Lin, W. Dyer, D. I. Goldman</p><p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), accepted</p><div class="pub-links"><a href="https://arxiv.org/abs/2603.07795" rel="noreferrer">arXiv</a></div></div></li>
-          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">Tunable Asymmetric Swimming in Biflagellate Microswimmers</p><p class="pub-authors">B. J. Walker, C. Moreau, T. L. Robinson, <strong>Z. J. Xu</strong>, D. I. Goldman, E. A. Gaffney</p><p class="pub-venue">Journal of The Royal Society Interface, accepted</p><div class="pub-links"><a href="https://arxiv.org/abs/2602.17521" rel="noreferrer">arXiv</a></div></div></li>
-          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">Agile Asymmetric Multi-Legged Locomotion: Contact Planning via Geometric Mechanics and Spin Model Duality</p><p class="pub-authors">J. Habala, G. B. Margolis, T. Wang, P. Bhatt, J. He, N. Naeem, <strong>Z. Xu</strong>, P. Agrawal</p><p class="pub-venue">arXiv preprint</p><div class="pub-links"><a href="https://arxiv.org/abs/2602.09123" rel="noreferrer">arXiv</a></div></div></li>
-          <li class="publication"><div class="pub-year">2026</div><div><p class="pub-title">Optimal Swimming with Body Compliance in an Overdamped Medium</p><p class="pub-authors">J. Lin, T. Wang, B. Chong, M. Fernandez, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">Physical Review Applied, 25, 054068</p><div class="pub-links"><a href="https://doi.org/10.1103/pbkh-py5h" rel="noreferrer">DOI</a></div></div></li>
-          <li class="publication"><div class="pub-year">2025</div><div><p class="pub-title">Robust Control for Multi-Legged Elongate Robots in Noisy Environments</p><p class="pub-authors">B. Chong, J. He, D. Irvine, T. Wang, E. Flores, D. Soto, J. Lin, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">arXiv preprint</p><div class="pub-links"><a href="https://arxiv.org/abs/2506.15788" rel="noreferrer">arXiv</a></div></div></li>
-          <li class="publication"><div class="pub-year">2025</div><div><p class="pub-title">Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes</p><p class="pub-authors">J. He, B. Chong, J. Lin, <strong>Z. Xu</strong>, H. Bagheri, E. Flores, D. I. Goldman</p><p class="pub-venue">IEEE Transactions on Robotics</p></div></li>
-          <li class="publication"><div class="pub-year">2025</div><div><p class="pub-title">Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains</p><p class="pub-authors">M. Iaschi, B. Chong, T. Wang, J. Lin, J. He, D. Soto, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2925–2931</p></div></li>
-          <li class="publication"><div class="pub-year">2024</div><div><p class="pub-title">Learning to Enhance Multi-Legged Robot on Rugged Landscapes</p><p class="pub-authors">J. He, B. Chong, <strong>Z. Xu</strong>, S. Ha, D. I. Goldman</p><p class="pub-venue">arXiv preprint</p><div class="pub-links"><a href="https://arxiv.org/abs/2409.09473" rel="noreferrer">arXiv</a></div></div></li>
+          <li class="publication" data-publication="centipede-surface-swimming">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Water Surface Swimming in a Centipede and its Robophysical Model"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Water Surface Swimming in a Centipede and its Robophysical Model</h3><p class="pub-authors"><strong>Z. J. Xu</strong>, D. Aydin, A. Mustafa, M. B. Levin, J. Lin, T. Wang, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2609.27088</p><div class="pub-links"><a href="https://arxiv.org/abs/2609.27088" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="hydro-cluttered-locomotion">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Three-dimensional hydro-cluttered locomotion by an undulatory robot"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Three-dimensional hydro-cluttered locomotion by an undulatory robot</h3><p class="pub-authors">T. Wang, M. Fernandez, G. Tunnicliffe, N. Cornell, J. Duong, D. Dortilus, <strong>Z. J. Xu</strong>, P. Meza, S. Lublinsky, D. Parikh, J. Lin, E. Grace, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2606.06829</p><div class="pub-links"><a href="https://arxiv.org/abs/2606.06829" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="body-compliance-swimming">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Optimal Swimming with Body Compliance in an Overdamped Medium"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Optimal Swimming with Body Compliance in an Overdamped Medium</h3><p class="pub-authors">J. Lin, T. Wang, B. Chong, M. Fernandez, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">Physical Review Applied, 25(5), 054068</p><div class="pub-links"><a href="https://doi.org/10.1103/pbkh-py5h" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="robust-antenna">
+            <figure class="pub-media" aria-label="GIF or video placeholder for A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot</h3><p class="pub-authors"><strong>Z. J. Xu</strong>, J. He, D. Aydan, M. Taylor, T. Wang, J. Lin, W. Dyer, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2603.07795</p><div class="pub-links"><a href="https://arxiv.org/abs/2603.07795" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="biflagellate-microswimmers">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Tunable Asymmetric Swimming in Biflagellate Microswimmers"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Tunable Asymmetric Swimming in Biflagellate Microswimmers</h3><p class="pub-authors">B. J. Walker, C. Moreau, T. L. Robinson, <strong>Z. J. Xu</strong>, D. I. Goldman, E. A. Gaffney, K. Y. Wan</p><p class="pub-venue">Journal of The Royal Society Interface</p><div class="pub-links"><a href="https://doi.org/10.1098/rsif.2026.0195" rel="noreferrer">Paper ↗</a><a href="https://arxiv.org/abs/2602.17521" rel="noreferrer">arXiv</a></div></div>
+          </li>
+          <li class="publication" data-publication="agile-asymmetric-locomotion">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Agile Asymmetric Multi-Legged Locomotion"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Agile Asymmetric Multi-Legged Locomotion: Contact Planning via Geometric Mechanics and Spin Model Duality</h3><p class="pub-authors">J. Habala, G. B. Margolis, T. Wang, P. Bhatt, J. He, N. Naeem, <strong>Z. Xu</strong>, P. Agrawal, D. I. Goldman, D. Luo, B. Chong</p><p class="pub-venue">arXiv preprint, 2602.09123</p><div class="pub-links"><a href="https://arxiv.org/abs/2602.09123" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="robust-control-noisy-environments">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Robust Control for Multi-Legged Elongate Robots in Noisy Environments"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2025</div><h3 class="pub-title">Robust Control for Multi-Legged Elongate Robots in Noisy Environments</h3><p class="pub-authors">B. Chong, J. He, D. Irvine, T. Wang, E. Flores, D. Soto, J. Lin, <strong>Z. Xu</strong>, V. R. Nienhusser, G. Blekherman, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2506.15788</p><div class="pub-links"><a href="https://arxiv.org/abs/2506.15788" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="probabilistic-feedback-control">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2025</div><h3 class="pub-title">Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes</h3><p class="pub-authors">J. He, B. Chong, J. Lin, <strong>Z. Xu</strong>, H. Bagheri, E. Flores, D. I. Goldman</p><p class="pub-venue">IEEE Transactions on Robotics, 41, 4776–4793</p><div class="pub-links"><a href="https://doi.org/10.1109/TRO.2025.3593133" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="peristaltic-wave">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2025</div><h3 class="pub-title">Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains</h3><p class="pub-authors">M. Iaschi, B. Chong, T. Wang, J. Lin, J. He, D. Soto, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2925–2931</p><div class="pub-links"><a href="https://arxiv.org/abs/2410.01046" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
+          <li class="publication" data-publication="learning-rugged-landscapes">
+            <figure class="pub-media" aria-label="GIF or video placeholder for Learning to Enhance Multi-Legged Robot on Rugged Landscapes"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
+            <div><div class="pub-year">2024</div><h3 class="pub-title">Learning to Enhance Multi-Legged Robot on Rugged Landscapes</h3><p class="pub-authors">J. He, B. Chong, <strong>Z. Xu</strong>, S. Ha, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2409.09473</p><div class="pub-links"><a href="https://arxiv.org/abs/2409.09473" rel="noreferrer">Paper ↗</a></div></div>
+          </li>
         </ol>
-        <p class="all-pubs">For the full publication and presentation list, see my <a href="James_Xu_CV.pdf">CV</a> or <a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Google Scholar profile</a>.</p>
+        <p class="all-pubs">Also on <a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Google Scholar</a>.</p>
       </section>
 
       <section id="education">
@@ -238,7 +262,7 @@
         </div>
       </section>
 
-      <footer>Last updated August 2026.</footer>
+      <footer>Last updated October 2026.</footer>
     </main>
   </div>
 </body>
