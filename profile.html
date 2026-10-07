@@ -130,12 +130,42 @@
     }
     .pub-media svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.3; }
     .pub-media img, .pub-media video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+    .pub-media.has-video { position: relative; display: block; overflow: hidden; aspect-ratio: 16 / 9; background: #f1f1f1; }
+    .pub-media.has-video video { object-fit: contain; }
+    .preview-toggle {
+      position: absolute; right: 4px; bottom: 4px; width: 32px; height: 32px;
+      display: grid; place-items: center; padding: 0; border: 1px solid #ffffff99;
+      border-radius: 50%; background: #ffffffe6; color: #333; cursor: pointer;
+    }
+    .preview-toggle svg { width: 13px; height: 13px; stroke-width: 2; }
+    .preview-toggle .pause-icon { display: none; }
+    .preview-toggle[aria-pressed="true"] .play-icon { display: none; }
+    .preview-toggle[aria-pressed="true"] .pause-icon { display: block; }
     .pub-year { margin-bottom: 4px; color: #888; font-size: 12px; font-variant-numeric: tabular-nums; }
     .content .pub-title { margin: 0 0 6px; font-size: 15px; font-weight: 600; line-height: 1.42; }
     .content .pub-authors, .content .pub-venue { margin: 0 0 4px; color: var(--muted); font-size: 13px; line-height: 1.45; }
     .pub-venue { font-style: italic; }
-    .pub-links { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; }
+    .pub-links { margin-top: 7px; display: flex; flex-wrap: wrap; align-items: center; gap: 0; font-size: 12px; }
+    .pub-resource { display: inline-flex; align-items: center; }
+    .pub-resource + .pub-resource::before { content: "/"; margin: 0 8px; color: #aaa; }
+    .pub-resource button { padding: 0; border: 0; background: transparent; color: var(--link); font: inherit; cursor: pointer; }
+    .pub-resource button:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .pub-resource button[aria-disabled="true"] { color: #999; cursor: default; text-decoration: none; }
+    .pub-resource button:focus-visible, .preview-toggle:focus-visible, .citation-dialog button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+    .content .resource-note { margin: -7px 0 18px; color: #888; font-size: 12px; }
     .content .all-pubs { margin-top: 17px; font-size: 13px; }
+
+    .citation-dialog { width: min(680px, calc(100% - 32px)); max-height: calc(100% - 48px); padding: 24px; border: 1px solid #ddd; border-radius: 6px; color: var(--text); background: #fff; box-shadow: 0 16px 70px #0002; }
+    .citation-dialog::backdrop { background: #0004; }
+    .citation-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .citation-header h2 { margin: 0; font-size: 18px; }
+    .citation-close { padding: 2px 7px; border: 0; background: transparent; color: #666; font-size: 24px; cursor: pointer; }
+    .citation-dialog pre { margin: 18px 0; padding: 16px; overflow: auto; border: 1px solid var(--rule); border-radius: 3px; background: #f7f8f9; font-size: 12px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .citation-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; font-size: 13px; }
+    .citation-copy { padding: 6px 11px; border: 1px solid #d5dde1; border-radius: 3px; background: #fff; color: var(--link); font: inherit; cursor: pointer; }
+    .citation-status { color: var(--muted); font-size: 12px; }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
     .education-list { display: grid; gap: 19px; }
     .education-item { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; }
@@ -185,7 +215,7 @@
       <img class="portrait" src="JamesXu.jpg" alt="James Xu holding a soft multi-legged robot outdoors">
       <div class="profile-info">
         <h1 class="name">Zhaochen James Xu</h1>
-        <p class="role">PhD Student<br><a href="https://physics.gatech.edu/" rel="noreferrer">School of Physics</a><a href="https://www.gatech.edu/" rel="noreferrer">Georgia Tech</a></p>
+        <p class="role">PhD Student<br>School of Physics<a href="https://www.gatech.edu/" rel="noreferrer">Georgia Tech</a></p>
         <nav class="quick-links" aria-label="Profile links"><a href="mailto:zxu699@gatech.edu">Email</a><a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Scholar</a></nav>
       </div>
 
@@ -200,54 +230,58 @@
     <main class="content" id="main">
       <section id="about">
         <h2>About Me</h2>
-        <p class="lead">I am a PhD student in Quantitative Bioscience in the <a href="https://physics.gatech.edu/" rel="noreferrer">School of Physics</a> at Georgia Tech, advised by <a href="https://crablab.gatech.edu/" rel="noreferrer">Prof. Daniel I. Goldman</a>. I am also pursuing an MS in Robotics/Computer Science.</p>
-        <p>My research uses physical experiments, robot design, and modeling to understand how multi-legged systems sense, adapt, and move through complex environments. I am especially interested in tactile sensing, terrain interaction, and locomotion across land and water.</p>
-        <p>Before Georgia Tech, I completed an MS in Biomedical Engineering at Columbia University and a BEng in Electrical Engineering at University College London.</p>
+        <p class="lead">I am a PhD student in Quantitative Bioscience in the School of Physics at Georgia Tech, advised by <a href="https://crablab.gatech.edu/" rel="noreferrer">Prof. Daniel I. Goldman</a>. I am also pursuing an MS in Robotics/Computer Science.</p>
+        <p>My research focuses on locomotion in complex environments (terrestrial and aquatic). I study biological systems to understand how behavior emerges and how these insights can inform robot design.</p>
+        <p>Before Georgia Tech, I completed an MS in Biomedical Engineering at Columbia University and a BEng in Electrical and Electronic Engineering at University College London.</p>
       </section>
 
       <section id="publications">
         <h2>Publications</h2>
+        <p class="resource-note">Gray links are placeholders for resources coming soon.</p>
         <!-- Replace each .pub-media figure's contents with its GIF <img> or <video> when available. -->
         <ol class="publication-list">
           <li class="publication" data-publication="centipede-surface-swimming">
             <figure class="pub-media" aria-label="GIF or video placeholder for Water Surface Swimming in a Centipede and its Robophysical Model"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2026</div><h3 class="pub-title">Water Surface Swimming in a Centipede and its Robophysical Model</h3><p class="pub-authors"><strong>Z. J. Xu</strong>, D. Aydin, A. Mustafa, M. B. Levin, J. Lin, T. Wang, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2609.27088</p><div class="pub-links"><a href="https://arxiv.org/abs/2609.27088" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Water Surface Swimming in a Centipede and its Robophysical Model</h3><p class="pub-authors"><strong>Z. J. Xu</strong>, D. Aydin, A. Mustafa, M. B. Levin, J. Lin, T. Wang, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2609.27088</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2609.27088" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="hydro-cluttered-locomotion">
             <figure class="pub-media" aria-label="GIF or video placeholder for Three-dimensional hydro-cluttered locomotion by an undulatory robot"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2026</div><h3 class="pub-title">Three-dimensional hydro-cluttered locomotion by an undulatory robot</h3><p class="pub-authors">T. Wang, M. Fernandez, G. Tunnicliffe, N. Cornell, J. Duong, D. Dortilus, <strong>Z. J. Xu</strong>, P. Meza, S. Lublinsky, D. Parikh, J. Lin, E. Grace, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2606.06829</p><div class="pub-links"><a href="https://arxiv.org/abs/2606.06829" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Three-dimensional hydro-cluttered locomotion by an undulatory robot</h3><p class="pub-authors">T. Wang, M. Fernandez, G. Tunnicliffe, N. Cornell, J. Duong, D. Dortilus, <strong>Z. J. Xu</strong>, P. Meza, S. Lublinsky, D. Parikh, J. Lin, E. Grace, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2606.06829</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2606.06829" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="body-compliance-swimming">
             <figure class="pub-media" aria-label="GIF or video placeholder for Optimal Swimming with Body Compliance in an Overdamped Medium"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2026</div><h3 class="pub-title">Optimal Swimming with Body Compliance in an Overdamped Medium</h3><p class="pub-authors">J. Lin, T. Wang, B. Chong, M. Fernandez, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">Physical Review Applied, 25(5), 054068</p><div class="pub-links"><a href="https://doi.org/10.1103/pbkh-py5h" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Optimal Swimming with Body Compliance in an Overdamped Medium</h3><p class="pub-authors">J. Lin, T. Wang, B. Chong, M. Fernandez, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">Physical Review Applied, 25(5), 054068</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2510.03457" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="robust-antenna">
-            <figure class="pub-media" aria-label="GIF or video placeholder for A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2026</div><h3 class="pub-title">A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot</h3><p class="pub-authors"><strong>Z. J. Xu</strong>, J. He, D. Aydan, M. Taylor, T. Wang, J. Lin, W. Dyer, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2603.07795</p><div class="pub-links"><a href="https://arxiv.org/abs/2603.07795" rel="noreferrer">Paper ↗</a></div></div>
+            <figure class="pub-media has-video" aria-label="Antenna project video preview">
+              <video id="antenna-preview" muted loop playsinline preload="metadata" poster="media/antenna-cover.jpg" aria-label="Antenna project cover video"><source src="media/antenna-cover.mp4" type="video/mp4"></video>
+              <button class="preview-toggle" type="button" aria-label="Play antenna preview" aria-pressed="false" aria-controls="antenna-preview" title="Play preview"><svg class="play-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5Z"/></svg><svg class="pause-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button>
+            </figure>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot</h3><p class="pub-authors"><strong>Z. J. Xu</strong>, J. He, D. Aydan, M. Taylor, T. Wang, J. Lin, W. Dyer, D. I. Goldman</p><p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026)</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><a href="https://arxiv.org/pdf/2603.07795" target="_blank" rel="noopener noreferrer">PDF</a></span><span class="pub-resource"><a href="https://www.youtube.com/watch?v=1wvNhWmLZlw" target="_blank" rel="noopener noreferrer">Video</a></span><span class="pub-resource"><a href="https://arxiv.org/abs/2603.07795" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" data-bibtex="antenna" aria-haspopup="dialog" aria-controls="antenna-bibtex-dialog">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="biflagellate-microswimmers">
             <figure class="pub-media" aria-label="GIF or video placeholder for Tunable Asymmetric Swimming in Biflagellate Microswimmers"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2026</div><h3 class="pub-title">Tunable Asymmetric Swimming in Biflagellate Microswimmers</h3><p class="pub-authors">B. J. Walker, C. Moreau, T. L. Robinson, <strong>Z. J. Xu</strong>, D. I. Goldman, E. A. Gaffney, K. Y. Wan</p><p class="pub-venue">Journal of The Royal Society Interface</p><div class="pub-links"><a href="https://doi.org/10.1098/rsif.2026.0195" rel="noreferrer">Paper ↗</a><a href="https://arxiv.org/abs/2602.17521" rel="noreferrer">arXiv</a></div></div>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Tunable Asymmetric Swimming in Biflagellate Microswimmers</h3><p class="pub-authors">B. J. Walker, C. Moreau, T. L. Robinson, <strong>Z. J. Xu</strong>, D. I. Goldman, E. A. Gaffney, K. Y. Wan</p><p class="pub-venue">Journal of The Royal Society Interface</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2602.17521" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="agile-asymmetric-locomotion">
             <figure class="pub-media" aria-label="GIF or video placeholder for Agile Asymmetric Multi-Legged Locomotion"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2026</div><h3 class="pub-title">Agile Asymmetric Multi-Legged Locomotion: Contact Planning via Geometric Mechanics and Spin Model Duality</h3><p class="pub-authors">J. Habala, G. B. Margolis, T. Wang, P. Bhatt, J. He, N. Naeem, <strong>Z. Xu</strong>, P. Agrawal, D. I. Goldman, D. Luo, B. Chong</p><p class="pub-venue">arXiv preprint, 2602.09123</p><div class="pub-links"><a href="https://arxiv.org/abs/2602.09123" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2026</div><h3 class="pub-title">Agile Asymmetric Multi-Legged Locomotion: Contact Planning via Geometric Mechanics and Spin Model Duality</h3><p class="pub-authors">J. Habala, G. B. Margolis, T. Wang, P. Bhatt, J. He, N. Naeem, <strong>Z. Xu</strong>, P. Agrawal, D. I. Goldman, D. Luo, B. Chong</p><p class="pub-venue">arXiv preprint, 2602.09123</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2602.09123" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="robust-control-noisy-environments">
             <figure class="pub-media" aria-label="GIF or video placeholder for Robust Control for Multi-Legged Elongate Robots in Noisy Environments"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2025</div><h3 class="pub-title">Robust Control for Multi-Legged Elongate Robots in Noisy Environments</h3><p class="pub-authors">B. Chong, J. He, D. Irvine, T. Wang, E. Flores, D. Soto, J. Lin, <strong>Z. Xu</strong>, V. R. Nienhusser, G. Blekherman, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2506.15788</p><div class="pub-links"><a href="https://arxiv.org/abs/2506.15788" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2025</div><h3 class="pub-title">Robust Control for Multi-Legged Elongate Robots in Noisy Environments</h3><p class="pub-authors">B. Chong, J. He, D. Irvine, T. Wang, E. Flores, D. Soto, J. Lin, <strong>Z. Xu</strong>, V. R. Nienhusser, G. Blekherman, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2506.15788</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2506.15788" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="probabilistic-feedback-control">
             <figure class="pub-media" aria-label="GIF or video placeholder for Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2025</div><h3 class="pub-title">Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes</h3><p class="pub-authors">J. He, B. Chong, J. Lin, <strong>Z. Xu</strong>, H. Bagheri, E. Flores, D. I. Goldman</p><p class="pub-venue">IEEE Transactions on Robotics, 41, 4776–4793</p><div class="pub-links"><a href="https://doi.org/10.1109/TRO.2025.3593133" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2025</div><h3 class="pub-title">Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes</h3><p class="pub-authors">J. He, B. Chong, J. Lin, <strong>Z. Xu</strong>, H. Bagheri, E. Flores, D. I. Goldman</p><p class="pub-venue">IEEE Transactions on Robotics, 41, 4776–4793</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2411.07183" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="peristaltic-wave">
             <figure class="pub-media" aria-label="GIF or video placeholder for Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2025</div><h3 class="pub-title">Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains</h3><p class="pub-authors">M. Iaschi, B. Chong, T. Wang, J. Lin, J. He, D. Soto, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2925–2931</p><div class="pub-links"><a href="https://arxiv.org/abs/2410.01046" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2025</div><h3 class="pub-title">Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains</h3><p class="pub-authors">M. Iaschi, B. Chong, T. Wang, J. Lin, J. He, D. Soto, <strong>Z. Xu</strong>, D. I. Goldman</p><p class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2925–2931</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2410.01046" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
           <li class="publication" data-publication="learning-rugged-landscapes">
             <figure class="pub-media" aria-label="GIF or video placeholder for Learning to Enhance Multi-Legged Robot on Rugged Landscapes"><svg aria-hidden="true"><use href="#media-placeholder"/></svg><figcaption>GIF / video<br>Coming soon</figcaption></figure>
-            <div><div class="pub-year">2024</div><h3 class="pub-title">Learning to Enhance Multi-Legged Robot on Rugged Landscapes</h3><p class="pub-authors">J. He, B. Chong, <strong>Z. Xu</strong>, S. Ha, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2409.09473</p><div class="pub-links"><a href="https://arxiv.org/abs/2409.09473" rel="noreferrer">Paper ↗</a></div></div>
+            <div><div class="pub-year">2024</div><h3 class="pub-title">Learning to Enhance Multi-Legged Robot on Rugged Landscapes</h3><p class="pub-authors">J. He, B. Chong, <strong>Z. Xu</strong>, S. Ha, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2409.09473</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="PDF coming soon" title="PDF coming soon">PDF</button></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2409.09473" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
         </ol>
         <p class="all-pubs">Also on <a href="https://scholar.google.com/citations?user=6tmR47MAAAAJ&amp;hl=en" rel="noreferrer">Google Scholar</a>.</p>
@@ -258,12 +292,77 @@
         <div class="education-list">
           <article class="education-item"><div class="education-year">2024–present</div><div><h3>Georgia Institute of Technology</h3><p>PhD in Quantitative Bioscience, School of Physics<br>MS in Robotics/Computer Science, in progress</p></div></article>
           <article class="education-item"><div class="education-year">2022–2024</div><div><h3>Columbia University</h3><p>MS in Biomedical Engineering, Neural Engineering</p></div></article>
-          <article class="education-item"><div class="education-year">2018–2022</div><div><h3>University College London</h3><p>BEng in Electrical Engineering, minor in Biomedical Engineering</p></div></article>
+          <article class="education-item"><div class="education-year">2018–2022</div><div><h3>University College London</h3><p>BEng in Electrical and Electronic Engineering, minor in Biomedical Engineering</p></div></article>
         </div>
       </section>
 
       <footer>Last updated October 2026.</footer>
     </main>
   </div>
+  <dialog class="citation-dialog" id="antenna-bibtex-dialog" aria-labelledby="citation-label">
+    <div class="citation-header"><h2 id="citation-label">BibTeX · Antenna project</h2><button class="citation-close" type="button" aria-label="Close BibTeX">×</button></div>
+    <pre><code id="antenna-citation">@article{xu2026robust,
+  title={A Robust Antenna Provides Tactile Feedback in a Multi-legged Robot},
+  author={Xu, Zhaochen J and He, Juntao and Aydan, Delfin and Taylor, Malaika and Wang, Tianyu and Lin, Jianfeng and Dyer, Wesley and Goldman, Daniel I},
+  journal={arXiv preprint arXiv:2603.07795},
+  year={2026}
+}</code></pre>
+    <div class="citation-actions"><button class="citation-copy" type="button">Copy BibTeX</button><a href="citations/xu2026robust.bib" download>Download .bib</a><span class="citation-status" role="status" aria-live="polite"></span></div>
+  </dialog>
+  <script>
+    (() => {
+      const dialog = document.querySelector('#antenna-bibtex-dialog');
+      const status = dialog.querySelector('.citation-status');
+      document.querySelector('[data-bibtex="antenna"]').addEventListener('click', () => {
+        status.textContent = '';
+        dialog.showModal();
+      });
+      dialog.querySelector('.citation-close').addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => {
+        const bounds = dialog.getBoundingClientRect();
+        if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+      });
+      dialog.querySelector('.citation-copy').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(document.querySelector('#antenna-citation').textContent);
+          status.textContent = 'Copied!';
+        } catch {
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(document.querySelector('#antenna-citation'));
+          selection.removeAllRanges();
+          selection.addRange(range);
+          status.textContent = 'Select and copy the highlighted citation.';
+        }
+      });
+
+      const video = document.querySelector('#antenna-preview');
+      const toggle = document.querySelector('.preview-toggle');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let userPaused = false;
+      let visible = false;
+      const syncButton = () => {
+        const playing = !video.paused;
+        toggle.setAttribute('aria-pressed', String(playing));
+        toggle.setAttribute('aria-label', playing ? 'Pause antenna preview' : 'Play antenna preview');
+        toggle.title = playing ? 'Pause preview' : 'Play preview';
+      };
+      const updatePlayback = () => {
+        if (visible && !document.hidden && !userPaused && !reducedMotion.matches) video.play().catch(syncButton);
+        else video.pause();
+      };
+      video.addEventListener('play', syncButton);
+      video.addEventListener('pause', syncButton);
+      toggle.addEventListener('click', () => {
+        if (video.paused) { userPaused = false; video.play().catch(syncButton); }
+        else { userPaused = true; video.pause(); }
+      });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; updatePlayback(); }, { threshold: .15 }).observe(video);
+      } else { visible = true; updatePlayback(); }
+      document.addEventListener('visibilitychange', updatePlayback);
+      reducedMotion.addEventListener('change', updatePlayback);
+    })();
+  </script>
 </body>
 </html>
