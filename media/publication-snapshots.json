@@ -1,0 +1,65 @@
+[
+  {
+    "id": "centipede-surface-swimming",
+    "url": "https://arxiv.org/pdf/2609.27088",
+    "figure": 1,
+    "page": 1,
+    "thumbnail": "media/centipede-surface-swimming-figure-1.jpg"
+  },
+  {
+    "id": "hydro-cluttered-locomotion",
+    "url": "https://arxiv.org/pdf/2606.06829",
+    "figure": 1,
+    "page": 5,
+    "thumbnail": "media/hydro-cluttered-locomotion-figure-1.jpg"
+  },
+  {
+    "id": "body-compliance-swimming",
+    "url": "https://ty-wang.github.io/data/lin2026optimal.pdf",
+    "figure": 1,
+    "page": 2,
+    "thumbnail": "media/body-compliance-swimming-figure-1.jpg"
+  },
+  {
+    "id": "biflagellate-microswimmers",
+    "url": "https://arxiv.org/pdf/2602.17521",
+    "figure": 1,
+    "page": 1,
+    "thumbnail": "media/biflagellate-microswimmers-figure-1.jpg"
+  },
+  {
+    "id": "agile-asymmetric-locomotion",
+    "url": "https://arxiv.org/pdf/2602.09123",
+    "figure": 1,
+    "page": 1,
+    "thumbnail": "media/agile-asymmetric-locomotion-figure-1.jpg"
+  },
+  {
+    "id": "robust-control-noisy-environments",
+    "url": "https://arxiv.org/pdf/2506.15788",
+    "figure": 1,
+    "page": 27,
+    "thumbnail": "media/robust-control-noisy-environments-figure-1.jpg"
+  },
+  {
+    "id": "probabilistic-feedback-control",
+    "url": "https://arxiv.org/pdf/2411.07183",
+    "figure": 1,
+    "page": 2,
+    "thumbnail": "media/probabilistic-feedback-control-figure-1.jpg"
+  },
+  {
+    "id": "peristaltic-wave",
+    "url": "https://ty-wang.github.io/data/iaschi2025addition.pdf",
+    "figure": 1,
+    "page": 1,
+    "thumbnail": "media/peristaltic-wave-figure-1.jpg"
+  },
+  {
+    "id": "learning-rugged-landscapes",
+    "url": "https://arxiv.org/pdf/2409.09473",
+    "figure": 1,
+    "page": 1,
+    "thumbnail": "media/learning-rugged-landscapes-figure-1.jpg"
+  }
+]
