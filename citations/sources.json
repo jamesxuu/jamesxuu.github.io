@@ -1,0 +1,95 @@
+{
+  "retrievedDate": "2026-10-07",
+  "publications": [
+    {
+      "id": "centipede-surface-swimming",
+      "arxivId": "2609.27088",
+      "source": "https://arxiv.org/abs/2609.27088",
+      "bibtex": "@misc{xu2026watersurfaceswimmingcentipede,\n      title={Water Surface Swimming in a Centipede and its Robophysical ModeL}, \n      author={Zhaochen J. Xu and Delfin Aydin and Abdullah Mustafa and Margarita B. Levin and Jianfeng Lin and Tianyu Wang and Daniel I. Goldman},\n      year={2026},\n      eprint={2609.27088},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2609.27088}, \n}",
+      "title": "Water Surface Swimming in a Centipede and its Robophysical Model",
+      "file": "citations/centipede-surface-swimming.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "robust-antenna",
+      "arxivId": "2603.07795",
+      "title": "A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot",
+      "source": "https://arxiv.org/abs/2603.07795",
+      "file": "citations/xu2026robust.bib",
+      "method": "User-supplied arXiv BibTeX entry",
+      "bibtex": "@misc{xu2026robustantennaprovidestactile,\n      title={A Robust Antenna Provides Tactile Feedback in a Multi-legged Robot},\n      author={Zhaochen J. Xu and Juntao He and Delfin Aydan and Malaika Taylor and Tianyu Wang and Jianfeng Lin and Wesley Dyer and Daniel I. Goldman},\n      year={2026},\n      eprint={2603.07795},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2603.07795},\n}\n"
+    },
+    {
+      "id": "hydro-cluttered-locomotion",
+      "arxivId": "2606.06829",
+      "source": "https://arxiv.org/abs/2606.06829",
+      "bibtex": "@misc{wang2026threedimensionalhydroclutteredlocomotionundulatory,\n      title={Three-dimensional hydro-cluttered locomotion by an undulatory robot}, \n      author={Tianyu Wang and Matthew Fernandez and Galen Tunnicliffe and Nikolas Cornell and Justin Duong and Donoven Dortilus and Zhaochen J. Xu and Patricia Meza and Sean Lublinsky and Darsh Parikh and Jianfeng Lin and Emily Grace and Daniel I. Goldman},\n      year={2026},\n      eprint={2606.06829},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2606.06829}, \n}",
+      "title": "Three-dimensional hydro-cluttered locomotion by an undulatory robot",
+      "file": "citations/hydro-cluttered-locomotion.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "body-compliance-swimming",
+      "arxivId": "2510.03457",
+      "source": "https://arxiv.org/abs/2510.03457",
+      "bibtex": "@misc{lin2025optimalswimmingbodycompliance,\n      title={Optimal swimming with body compliance in an overdamped medium}, \n      author={Jianfeng Lin and Tianyu Wang and Baxi Chong and Matthew Fernandez and Zhaochen Xu and Daniel I. Goldman},\n      year={2025},\n      eprint={2510.03457},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2510.03457}, \n}",
+      "title": "Optimal Swimming with Body Compliance in an Overdamped Medium",
+      "file": "citations/body-compliance-swimming.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "biflagellate-microswimmers",
+      "arxivId": "2602.17521",
+      "source": "https://arxiv.org/abs/2602.17521",
+      "bibtex": "@article{Walker_2026,\n   title={Tunable asymmetric swimming in biflagellate microswimmers},\n   volume={23},\n   ISSN={1742-5662},\n   url={http://dx.doi.org/10.1098/rsif.2026.0195},\n   DOI={10.1098/rsif.2026.0195},\n   number={241},\n   journal={Journal of the Royal Society Interface},\n   publisher={The Royal Society},\n   author={Walker, Benjamin J. and Moreau, Clément and Robinson, Tommie L. and Xu, Zhaochen J. and Goldman, Daniel I. and Gaffney, Eamonn A. and Wan, Kirsty Y.},\n   year={2026},\n   month=Aug }\n",
+      "title": "Tunable Asymmetric Swimming in Biflagellate Microswimmers",
+      "file": "citations/biflagellate-microswimmers.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "agile-asymmetric-locomotion",
+      "arxivId": "2602.09123",
+      "source": "https://arxiv.org/abs/2602.09123",
+      "bibtex": "@misc{habala2026agileasymmetricmultileggedlocomotion,\n      title={Agile asymmetric multi-legged locomotion: contact planning via geometric mechanics and spin model duality}, \n      author={Jackson Habala and Gabriel B. Margolis and Tianyu Wang and Pratyush Bhatt and Juntao He and Naheel Naeem and Zhaochen Xu and Pulkit Agrawal and Daniel I. Goldman and Di Luo and Baxi Chong},\n      year={2026},\n      eprint={2602.09123},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2602.09123}, \n}",
+      "title": "Agile Asymmetric Multi-Legged Locomotion: Contact Planning via Geometric Mechanics and Spin Model Duality",
+      "file": "citations/agile-asymmetric-locomotion.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "robust-control-noisy-environments",
+      "arxivId": "2506.15788",
+      "source": "https://arxiv.org/abs/2506.15788",
+      "bibtex": "@misc{chong2025robustcontrolmultileggedelongate,\n      title={Robust control for multi-legged elongate robots in noisy environments}, \n      author={Baxi Chong and Juntao He and Daniel Irvine and Tianyu Wang and Esteban Flores and Daniel Soto and Jianfeng Lin and Zhaochen Xu and Vincent R Nienhusser and Grigoriy Blekherman and Daniel I. Goldman},\n      year={2025},\n      eprint={2506.15788},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2506.15788}, \n}",
+      "title": "Robust Control for Multi-Legged Elongate Robots in Noisy Environments",
+      "file": "citations/robust-control-noisy-environments.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "probabilistic-feedback-control",
+      "arxivId": "2411.07183",
+      "source": "https://arxiv.org/abs/2411.07183",
+      "bibtex": "@article{He_2025,\n   title={Probabilistic Approach to Feedback Control Enhances Multilegged Locomotion on Rugged Landscapes},\n   volume={41},\n   ISSN={1941-0468},\n   url={http://dx.doi.org/10.1109/TRO.2025.3593133},\n   DOI={10.1109/tro.2025.3593133},\n   journal={IEEE Transactions on Robotics},\n   publisher={Institute of Electrical and Electronics Engineers (IEEE)},\n   author={He, Juntao and Chong, Baxi and Lin, Jianfeng and Xu, Zhaochen and Bagheri, Hosain and Flores, Esteban and Goldman, Daniel I.},\n   year={2025},\n   pages={4776–4793} }\n",
+      "title": "Probabilistic Approach to Feedback Control Enhances Multi-Legged Locomotion on Rugged Landscapes",
+      "file": "citations/probabilistic-feedback-control.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "peristaltic-wave",
+      "arxivId": "2410.01046",
+      "source": "https://arxiv.org/abs/2410.01046",
+      "bibtex": "@misc{iaschi2024additionperistalticwaveimproves,\n      title={Addition of a peristaltic wave improves multi-legged locomotion performance on complex terrains}, \n      author={Massimiliano Iaschi and Baxi Chong and Tianyu Wang and Jianfeng Lin and Juntao He and Daniel Soto and Zhaochen Xu and Daniel I Goldman},\n      year={2024},\n      eprint={2410.01046},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2410.01046}, \n}",
+      "title": "Addition of a Peristaltic Wave Improves Multi-Legged Locomotion Performance on Complex Terrains",
+      "file": "citations/peristaltic-wave.bib",
+      "method": "arXiv export BibTeX citation button"
+    },
+    {
+      "id": "learning-rugged-landscapes",
+      "arxivId": "2409.09473",
+      "source": "https://arxiv.org/abs/2409.09473",
+      "bibtex": "@misc{he2024learningenhancemultileggedrobot,\n      title={Learning to enhance multi-legged robot on rugged landscapes}, \n      author={Juntao He and Baxi Chong and Zhaochen Xu and Sehoon Ha and Daniel I. Goldman},\n      year={2024},\n      eprint={2409.09473},\n      archivePrefix={arXiv},\n      primaryClass={cs.RO},\n      url={https://arxiv.org/abs/2409.09473}, \n}",
+      "title": "Learning to Enhance Multi-Legged Robot on Rugged Landscapes",
+      "file": "citations/learning-rugged-landscapes.bib",
+      "method": "arXiv export BibTeX citation button"
+    }
+  ]
+}
