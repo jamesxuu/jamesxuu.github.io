@@ -134,7 +134,6 @@
     .pub-snapshot-link { display: block; width: 100%; height: 100%; }
     /* Consistent, frameless previews; each thumbnail still opens the full PDF figure. */
     .pub-media.has-image img { object-fit: cover; }
-    .publication[data-publication="centipede-surface-swimming"] img,
     .publication[data-publication="agile-asymmetric-locomotion"] img { object-position: center bottom; }
     .publication[data-publication="robust-control-noisy-environments"] img,
     .publication[data-publication="peristaltic-wave"] img,
@@ -266,12 +265,15 @@
           <!-- First-author highlights stay visible. Add other selected papers here as needed. -->
           <ol class="publication-list highlighted-list">
             <li class="publication" data-publication="centipede-surface-swimming">
-            <figure class="pub-media has-image"><a class="pub-snapshot-link" href="https://arxiv.org/pdf/2609.27088#page=1" target="_blank" rel="noopener noreferrer" title="Figure 1 from this paper · Open PDF"><img src="media/centipede-surface-swimming-figure-1.jpg" alt="Figure 1: centipede and multi-legged robot swimming at the water surface." loading="lazy" decoding="async"></a><figcaption class="visually-hidden">Figure 1 from the linked publication, page 1; temporary project preview.</figcaption></figure>
-            <div><div class="pub-year">2026</div><h4 class="pub-title">Water Surface Swimming in a Centipede and its Robophysical Model</h4><p class="pub-authors"><strong>Z. J. Xu</strong>, D. Aydin, A. Mustafa, M. B. Levin, J. Lin, T. Wang, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2609.27088</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><a href="https://arxiv.org/pdf/2609.27088" target="_blank" rel="noopener noreferrer">PDF</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="Video coming soon" title="Video coming soon">Video</button></span><span class="pub-resource"><a href="https://arxiv.org/abs/2609.27088" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
+            <figure class="pub-media has-video" aria-label="Swimming paper video preview">
+              <video id="swimming-preview" data-preview-label="swimming" muted loop playsinline preload="metadata" poster="media/swimming-cover.jpg" aria-label="Centipede swimming paper video"><source src="media/swimming-cover.mp4" type="video/mp4"></video>
+              <button class="preview-toggle" type="button" aria-label="Play swimming preview" aria-pressed="false" aria-controls="swimming-preview" title="Play preview"><svg class="play-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5Z"/></svg><svg class="pause-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button>
+            </figure>
+            <div><div class="pub-year">2026</div><h4 class="pub-title">Water Surface Swimming in a Centipede and its Robophysical Model</h4><p class="pub-authors"><strong>Z. J. Xu</strong>, D. Aydin, A. Mustafa, M. B. Levin, J. Lin, T. Wang, D. I. Goldman</p><p class="pub-venue">arXiv preprint, 2609.27088</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><a href="https://arxiv.org/pdf/2609.27088" target="_blank" rel="noopener noreferrer">PDF</a></span><span class="pub-resource"><a href="media/swimming-video.mp4" target="_blank" rel="noopener noreferrer">Video</a></span><span class="pub-resource"><a href="https://arxiv.org/abs/2609.27088" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" aria-disabled="true" aria-label="BibTeX coming soon" title="BibTeX coming soon">BibTeX</button></span></nav></div>
           </li>
             <li class="publication" data-publication="robust-antenna">
             <figure class="pub-media has-video" aria-label="Antenna project video preview">
-              <video id="antenna-preview" muted loop playsinline preload="metadata" poster="media/antenna-cover.jpg" aria-label="Antenna project cover video"><source src="media/antenna-cover.mp4" type="video/mp4"></video>
+              <video id="antenna-preview" data-preview-label="antenna" muted loop playsinline preload="metadata" poster="media/antenna-cover.jpg" aria-label="Antenna project cover video"><source src="media/antenna-cover.mp4" type="video/mp4"></video>
               <button class="preview-toggle" type="button" aria-label="Play antenna preview" aria-pressed="false" aria-controls="antenna-preview" title="Play preview"><svg class="play-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5Z"/></svg><svg class="pause-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button>
             </figure>
             <div><div class="pub-year">2026</div><h4 class="pub-title">A Robust Antenna Provides Tactile Feedback in a Multi-Legged Robot</h4><p class="pub-authors"><strong>Z. J. Xu</strong>, J. He, D. Aydan, M. Taylor, T. Wang, J. Lin, W. Dyer, D. I. Goldman</p><p class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026)</p><nav class="pub-links" aria-label="Publication resources"><span class="pub-resource"><a href="https://arxiv.org/pdf/2603.07795" target="_blank" rel="noopener noreferrer">PDF</a></span><span class="pub-resource"><a href="https://www.youtube.com/watch?v=1wvNhWmLZlw" target="_blank" rel="noopener noreferrer">Video</a></span><span class="pub-resource"><a href="https://arxiv.org/abs/2603.07795" target="_blank" rel="noopener noreferrer">arXiv</a></span><span class="pub-resource"><button type="button" data-bibtex="antenna" aria-haspopup="dialog" aria-controls="antenna-bibtex-dialog">BibTeX</button></span></nav></div>
@@ -371,32 +373,36 @@
         }
       });
 
-      const video = document.querySelector('#antenna-preview');
-      const toggle = document.querySelector('.preview-toggle');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      let userPaused = false;
-      let visible = false;
-      const syncButton = () => {
-        const playing = !video.paused;
-        toggle.setAttribute('aria-pressed', String(playing));
-        toggle.setAttribute('aria-label', playing ? 'Pause antenna preview' : 'Play antenna preview');
-        toggle.title = playing ? 'Pause preview' : 'Play preview';
-      };
-      const updatePlayback = () => {
-        if (visible && !document.hidden && !userPaused && !reducedMotion.matches) video.play().catch(syncButton);
-        else video.pause();
-      };
-      video.addEventListener('play', syncButton);
-      video.addEventListener('pause', syncButton);
-      toggle.addEventListener('click', () => {
-        if (video.paused) { userPaused = false; video.play().catch(syncButton); }
-        else { userPaused = true; video.pause(); }
+      document.querySelectorAll('.pub-media.has-video').forEach((preview) => {
+        const video = preview.querySelector('video');
+        const toggle = preview.querySelector('.preview-toggle');
+        if (!video || !toggle) return;
+        const previewName = video.dataset.previewLabel || 'video';
+        let userPaused = false;
+        let visible = false;
+        const syncButton = () => {
+          const playing = !video.paused;
+          toggle.setAttribute('aria-pressed', String(playing));
+          toggle.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${previewName} preview`);
+          toggle.title = playing ? 'Pause preview' : 'Play preview';
+        };
+        const updatePlayback = () => {
+          if (visible && !document.hidden && !userPaused && !reducedMotion.matches) video.play().catch(syncButton);
+          else video.pause();
+        };
+        video.addEventListener('play', syncButton);
+        video.addEventListener('pause', syncButton);
+        toggle.addEventListener('click', () => {
+          if (video.paused) { userPaused = false; video.play().catch(syncButton); }
+          else { userPaused = true; video.pause(); }
+        });
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; updatePlayback(); }, { threshold: .15 }).observe(video);
+        } else { visible = true; updatePlayback(); }
+        document.addEventListener('visibilitychange', updatePlayback);
+        reducedMotion.addEventListener('change', updatePlayback);
       });
-      if ('IntersectionObserver' in window) {
-        new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; updatePlayback(); }, { threshold: .15 }).observe(video);
-      } else { visible = true; updatePlayback(); }
-      document.addEventListener('visibilitychange', updatePlayback);
-      reducedMotion.addEventListener('change', updatePlayback);
     })();
   </script>
 </body>
