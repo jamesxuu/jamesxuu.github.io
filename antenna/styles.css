@@ -30,6 +30,12 @@ h1 { max-width: 870px; margin: 0 auto 21px; font-size: clamp(28px, 3.4vw, 38px);
 .paper-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0; }
 .paper-links a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 1.5; padding: 2px 14px; }
 .paper-links a + a { border-left: 1px solid var(--line); }
+.resource-icon { width: 18px; height: 18px; flex: 0 0 auto; }
+.logo-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px; width: fit-content; max-width: 100%; margin: 27px auto 0; padding: 12px 18px; background: #fff; }
+.logo-row img { display: block; height: auto; max-width: 100%; object-fit: contain; }
+.logo-row .iros-logo { width: 104px; }
+.logo-row .crab-logo { width: 190px; }
+.logo-row .qbios-logo { width: 240px; }
 section { border-top: 1px solid var(--line); padding: 30px 0 36px; }
 h2 { font-size: 24px; line-height: 1.2; font-weight: 600; letter-spacing: -.015em; margin: 0 0 20px; }
 .abstract-section { max-width: 800px; margin: auto; }
@@ -72,6 +78,9 @@ body:has(dialog[open]) { overflow: hidden; }
   .authors { font-size: 14px; }
   .desktop-break { display: none; }
   .affiliation { font-size: 13px; }
+  .logo-row { gap: 18px 22px; padding: 12px; }
+  .logo-row .iros-logo { width: 96px; }
+  .logo-row .crab-logo { width: 180px; }
   section { padding: 26px 0 30px; }
   .abstract-section p { font-size: 16px; }
   h2 { font-size: 24px; }
