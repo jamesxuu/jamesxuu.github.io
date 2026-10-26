@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Robust Antenna Provides Tactile Feedback in a Multi-legged Robot. IROS 2026 research from Georgia Tech: abstract, paper figures, and project video.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="A Robust Antenna Provides Tactile Feedback in a Multi-legged Robot">
+  <meta property="og:description" content="Centipede-inspired tactile antennae for contact-guided navigation. IROS 2026 · Georgia Institute of Technology.">
+  <meta property="og:url" content="https://jamesxuu.github.io/antenna">
+  <meta property="og:image" content="https://jamesxuu.github.io/antenna/assets/figure-8.webp">
+  <title>A Robust Antenna Provides Tactile Feedback in a Multi-legged Robot</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23397d9c'/%3E%3Cpath d='M24 34V21M24 24Q12 24 10 10M24 24Q36 24 38 10' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient-background" aria-hidden="true">
+    <video id="background-video" autoplay muted loop playsinline preload="auto" poster="../media/antenna-cover.jpg" tabindex="-1" disablepictureinpicture disableremoteplayback>
+      <source src="../media/antenna-cover.mp4" type="video/mp4">
+    </video>
+  </div>
+  <a class="skip-link" href="#abstract">Skip to abstract</a>
+  <header class="paper-header">
+    <p class="venue">IROS 2026</p>
+    <h1>A Robust Antenna Provides Tactile Feedback in a Multi-legged Robot</h1>
+    <p class="authors"><a href="https://jamesxuu.github.io/" target="_blank" rel="noopener noreferrer"><strong>Zhaochen J. Xu</strong></a>, Juntao He, Delfin Aydan, Malaika Taylor,<br class="desktop-break"> Tianyu Wang, Jianfeng Lin, Wesley Dyer, Daniel I. Goldman</p>
+    <p class="affiliation">Georgia Institute of Technology</p>
+    <nav class="paper-links" aria-label="Paper resources">
+      <a class="primary-link" href="https://arxiv.org/pdf/2603.07795" target="_blank" rel="noopener noreferrer">Paper (PDF) <span aria-hidden="true">↗</span></a>
+      <a href="https://arxiv.org/abs/2603.07795" target="_blank" rel="noopener noreferrer">arXiv <span aria-hidden="true">↗</span></a>
+      <a href="#video">Video <span aria-hidden="true">↓</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="abstract" class="abstract-section" aria-labelledby="abstract-heading">
+      <h2 id="abstract-heading">Abstract</h2>
+      <p>Multi-legged elongate robots hold promise for maneuvering through complex environments. Prior work has demonstrated that reliable locomotion can be achieved using open-loop body undulation and foot placement on rugose terrain. However, robust navigation through confined spaces remains challenging when body-environment contact is extensive and terrain rheology varies rapidly. To address this challenge, we develop a pair of tactile antennae for multi-legged robots that enable real-time sensing of surrounding geometry, modeling the morphology and function of biological centipede antennae. Each antenna features gradient compliance, with a stiff base and soft tip, allowing repeated deformation and elastic recovery.</p>
+      <p>Robophysical experiments reveal a relationship between continuous antenna curvature and contact force, leading to a simplified mapping from antenna deformation to inferred discrete collision states. We incorporate this mapping into a controller that selects among a set of locomotor maneuvers based on the inferred collision state. Experiments in obstacle-rich and confined environments demonstrate that tactile feedback enables reliable steering and allows the robot to recover from near-stuck conditions without requiring global environmental information or real-time vision. These results highlight how mechanically tuned tactile appendages can simplify sensing and enhance autonomy in elongate multi-legged robots operating in constrained spaces.</p>
+    </section>
+
+    <section id="video" class="video-section" aria-labelledby="video-heading">
+      <div class="section-heading">
+        <h2 id="video-heading">Video</h2>
+        <a href="https://www.youtube.com/watch?v=1wvNhWmLZlw" target="_blank" rel="noopener noreferrer">Watch on YouTube <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/1wvNhWmLZlw" title="A Robust Antenna Provides Tactile Feedback in a Multi-legged Robot — project video" width="960" height="540" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="figures" class="figures-section" aria-labelledby="figures-heading">
+      <div class="section-heading">
+        <h2 id="figures-heading">Figures</h2>
+        <div class="figure-controls" aria-label="Figure navigation">
+          <button id="previous-figure" type="button" aria-label="Previous figure" aria-controls="figure-track" disabled><span aria-hidden="true">←</span></button>
+          <span id="figure-counter" aria-live="polite" aria-atomic="true">1 / 8</span>
+          <button id="next-figure" type="button" aria-label="Next figure" aria-controls="figure-track"><span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <p class="figure-hint" id="figure-help">Scroll or use the arrows to browse. Click a figure to enlarge.</p>
+      <div class="figure-panel">
+      <div class="figure-track" id="figure-track" role="region" aria-label="Paper figures" aria-roledescription="carousel" aria-describedby="figure-help" tabindex="0">
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 1 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 1: Antenna design and robotic platform">
+            <img src="assets/figure-1.webp" width="1024" height="1650" alt="Antenna design, a centipede sensing a wall, and the SCUTTLE robot with an antenna module." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 1</span><h3>Antenna design and robotic platform</h3><p>A compliant tactile antenna inspired by centipedes, integrated on the multi-legged SCUTTLE robot.</p></figcaption>
+        </figure>
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 2 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 2: Biological antenna morphology">
+            <img src="assets/figure-2.webp" width="976" height="1364" alt="Centipede antenna anatomy, its tapering diameter, and the corresponding descending stiffness proxy." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 2</span><h3>Biological antenna morphology</h3><p>The antenna of <i>Scolopendra subspinipes</i> tapers from base to tip, motivating a descending stiffness design.</p></figcaption>
+        </figure>
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 3 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 3: Antennae during wall-following">
+            <img src="assets/figure-3.webp" width="1114" height="1842" alt="Centipede wall-following sequence, three antenna contact shapes, and their observed distribution." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 3</span><h3>Antennae during wall-following</h3><p>Sustained wall contact produces forward-pointing, backward-pointing, and straight antenna configurations.</p></figcaption>
+        </figure>
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 4 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 4: Robotic antenna motion">
+            <img src="assets/figure-4.webp" width="1908" height="706" alt="Forward- and backward-pointing robotic antenna configurations and a planar antenna sweep schematic." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 4</span><h3>Robotic antenna motion</h3><p>Contact configurations and the controlled planar sweep used for calibration and testing.</p></figcaption>
+        </figure>
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 5 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 5: Calibrating touch">
+            <img src="assets/figure-5.svg" width="476" height="449" alt="Calibration measurements and a sigmoid fit mapping sensor readings to normalized antenna bending." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 5</span><h3>Calibrating touch</h3><p>Sensor measurements across three traverse speeds establish a mapping to normalized antenna bending.</p></figcaption>
+        </figure>
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 6 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 6: Why compliance matters">
+            <img src="assets/figure-6.webp" width="2940" height="1004" alt="Antenna stiffness comparisons showing jamming, compliant contact, collapse, and traversal success rates." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 6</span><h3>Why compliance matters</h3><p>A descending stiffness profile balances reliable contact sensing with the flexibility to avoid jamming.</p></figcaption>
+        </figure>
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 7 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 7: From sensing to action">
+            <img src="assets/figure-7.webp" width="736" height="1464" alt="Controller flowchart mapping left and right antenna signals to forward, turning, and reverse maneuvers." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 7</span><h3>From sensing to action</h3><p>Bilateral antenna feedback selects forward, turning, and reversing maneuvers for confined traversal.</p></figcaption>
+        </figure>
+        <figure class="figure-slide" role="group" aria-roledescription="slide" aria-label="Figure 8 of 8">
+          <button class="figure-image" type="button" aria-label="Enlarge Figure 8: Navigating confined spaces">
+            <img src="assets/figure-8.webp" width="1098" height="804" alt="The SCUTTLE robotic platform and a representative trajectory through a cluttered tunnel." loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="figure-number">Figure 8</span><h3>Navigating confined spaces</h3><p>The antenna-equipped robot and a representative traversal through a narrow, cluttered environment.</p></figcaption>
+        </figure>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Georgia Institute of Technology · IROS 2026</span><a href="https://arxiv.org/abs/2603.07795" target="_blank" rel="noopener noreferrer">arXiv:2603.07795 <span aria-hidden="true">↗</span></a></footer>
+
+  <dialog id="figure-dialog" aria-label="Enlarged paper figure">
+    <form method="dialog"><button class="close-dialog" aria-label="Close enlarged figure">Close <span aria-hidden="true">×</span></button></form>
+    <img id="enlarged-figure" alt="">
+    <p id="enlarged-caption"></p>
+  </dialog>
+</body>
+</html>
