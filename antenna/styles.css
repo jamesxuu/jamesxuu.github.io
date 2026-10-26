@@ -21,8 +21,8 @@ button { font: inherit; }
 .skip-link { position: fixed; top: 12px; left: 12px; z-index: 10; padding: 8px 16px; background: white; transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 .paper-header, main, footer { position: relative; z-index: 1; width: min(900px, calc(100% - 64px)); margin-inline: auto; }
-.paper-header { text-align: center; padding: 56px 0 38px; }
-.venue { margin: 0 0 16px; color: var(--muted); font-size: 13px; font-weight: 400; letter-spacing: .02em; }
+.paper-header { text-align: center; padding: 34px 0 38px; }
+.venue-logo { display: block; width: 176px; max-width: 45vw; height: auto; margin: 0 auto 26px; }
 h1 { max-width: 870px; margin: 0 auto 21px; font-size: clamp(28px, 3.4vw, 38px); line-height: 1.2; letter-spacing: -.025em; font-weight: 600; text-wrap: balance; }
 .authors { margin: 0; font-size: 15px; line-height: 1.8; }
 .authors strong { font-weight: 600; }
@@ -31,11 +31,10 @@ h1 { max-width: 870px; margin: 0 auto 21px; font-size: clamp(28px, 3.4vw, 38px);
 .paper-links a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 1.5; padding: 2px 14px; }
 .paper-links a + a { border-left: 1px solid var(--line); }
 .resource-icon { width: 18px; height: 18px; flex: 0 0 auto; }
-.logo-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px; width: fit-content; max-width: 100%; margin: 27px auto 0; padding: 12px 18px; background: #fff; }
+.logo-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px 46px; max-width: 100%; margin: 32px auto 0; padding: 0; background: transparent; }
 .logo-row img { display: block; height: auto; max-width: 100%; object-fit: contain; }
-.logo-row .iros-logo { width: 104px; }
-.logo-row .crab-logo { width: 190px; }
-.logo-row .qbios-logo { width: 240px; }
+.logo-row .crab-logo { width: 270px; }
+.logo-row .qbios-logo { width: 350px; }
 section { border-top: 1px solid var(--line); padding: 30px 0 36px; }
 h2 { font-size: 24px; line-height: 1.2; font-weight: 600; letter-spacing: -.015em; margin: 0 0 20px; }
 .abstract-section { max-width: 800px; margin: auto; }
@@ -73,14 +72,15 @@ dialog form { position: absolute; right: 16px; top: 12px; }
 body:has(dialog[open]) { overflow: hidden; }
 @media (max-width: 700px) {
   .paper-header, main, footer { width: calc(100% - 36px); }
-  .paper-header { padding: 36px 0 30px; }
+  .paper-header { padding: 26px 0 30px; }
+  .venue-logo { width: 154px; margin-bottom: 24px; }
   h1 { font-size: 29px; margin-bottom: 18px; }
   .authors { font-size: 14px; }
   .desktop-break { display: none; }
   .affiliation { font-size: 13px; }
-  .logo-row { gap: 18px 22px; padding: 12px; }
-  .logo-row .iros-logo { width: 96px; }
-  .logo-row .crab-logo { width: 180px; }
+  .logo-row { gap: 24px 32px; padding: 0; }
+  .logo-row .crab-logo { width: 240px; }
+  .logo-row .qbios-logo { width: min(320px, 100%); }
   section { padding: 26px 0 30px; }
   .abstract-section p { font-size: 16px; }
   h2 { font-size: 24px; }
